@@ -1,18 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<title>Testing components</title>
-	<meta name="description" content="A test for Web Components">
-	<meta name="color-scheme" content="light dark">
-	
-	<link rel="stylesheet" href="style.css">
-	
-	<script type="module" src="component.js" async></script>
-</head>
-<body>
-	<header><h1>Testing a custom component</h1></header>
-	<main>
-		
-	</main>
-</body>
+  <head>
+    <title>Testing components</title>
+    <meta name="description" content="A test for Web Components" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="module" src="component.js" async></script>
+  </head>
+  <body>
+    <template id="detailer">
+      <!-- Shadow DOM? -->
+      <details>
+        <summary><slot></slot></summary>
+      </details>
+    </template>
+
+    <header><h1>Testing a custom component</h1></header>
+    <main></main>
+  </body>
 </html>
