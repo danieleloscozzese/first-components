@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tab Group Example</title>
+    <meta name="description" content="A demo implementation of a Tab Group" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <script type="module" src="./tab-group.js" async></script>
+  </head>
+  <body>
+    <template id="tab-group-structure">
+      <div>
+        <!-- This needs an aria-label -->
+        <ol role="tablist"></ol>
+      </div>
+    </template>
+
+    <header><h1>Testing a custom component</h1></header>
+    <main></main>
+
+    <!-- <li
+        key={title.label}
+        role="tab"
+        className={classNames(ownClasses.tab, "body m")}
+        id={`tab-${index}`}
+        aria-controls={`panel-${index}`}
+        aria-selected={isSelected}
+      >
+        <button
+          type="button"
+          onClick={(evt) => {
+            // Focus the clicked tab and scroll to it, to align with the
+            // keyboard navigation and prevent cutting off the newly-selected
+            // tab.
+            focusAndScroll(evt.currentTarget);
+            setActiveTabIndex(index);
+          }}
+          onKeyDown={(evt) => navigateTabs(evt, index)}
+          onFocus={
+            withManualSwitching ? undefined : (evt) => evt.currentTarget.click()
+          }
+          tabIndex={isSelected ? 0 : -1}
+        >
+          {title.label}
+
+          {title.badge}
+        </button>
+      </li> -->
+
+    <!-- <section
+        key={titles[index].label}
+        role="tabpanel"
+        className={ownClasses.panel}
+        hidden={!isSelected}
+        tabIndex={isSelected ? 0 : undefined}
+        aria-labelledby={`tab-${index}`}
+        id={`panel-${index}`}
+      >
+        {panel}
+      </section> -->
+  </body>
+</html>
