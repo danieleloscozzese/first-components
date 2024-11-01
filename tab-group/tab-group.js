@@ -29,8 +29,10 @@ class TabGroup extends HTMLElement {
 
       const tab = document.createElement("li");
       tab.role = "tab";
-      tab.textContent = title;
-      tab.classList.add("tab");
+      const tabButton = document.createElement("button");
+      tabButton.type = "button";
+      tabButton.textContent = title;
+      tab.appendChild(tabButton);
       tabList.appendChild(tab);
 
       const panel = document.createElement("section");
