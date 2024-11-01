@@ -5,6 +5,8 @@
     <meta name="description" content="A demo implementation of a Tab Group" />
     <meta name="color-scheme" content="light dark" />
 
+    <base href="/tab-group/" />
+
     <link rel="stylesheet" href="./style.css" />
 
     <script type="module" src="./tab-group.js" async></script>
@@ -18,7 +20,18 @@
     </template>
 
     <header><h1>Testing a custom component</h1></header>
-    <main></main>
+    <main>
+      <dag-tab-group>
+        <details>
+          <summary>First</summary>
+          The first content
+        </details>
+        <details>
+          <summary>Second</summary>
+          <p>The <em>second</em> content</p>
+        </details>
+      </dag-tab-group>
+    </main>
 
     <!-- <li
         key={title.label}
