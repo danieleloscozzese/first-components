@@ -81,20 +81,20 @@
     }
   }
 
-  .tab-list.underline .tab {
+  [role="tablist"].underline [role="tab"] {
     /*
       The border is always present but transparent to prevent a jump in the
       layout when a tab is selected (since the border is counted in the height).
     */
     border-bottom: 3px solid transparent;
-  }
 
-  .tab-list.underline .tab:where(:hover, :active, :focus-within) {
-    border-bottom-color: var(--hover-border-color);
-  }
+    &:where(:hover, :active, :focus-within) {
+      border-bottom-color: var(--hover-border-color);
+    }
 
-  .tab-list.underline .tab[aria-selected="true"] {
-    border-bottom-color: currentColor;
+    &[aria-selected="true"] {
+      border-bottom-color: currentColor;
+    }
   }
 
   @media (max-width: 768px) {
@@ -116,19 +116,19 @@
   }
 
   @media (min-width: 768px) {
-    .tab-list.pill {
+    [role="tablist"].pill {
       gap: var(--spacing-xs);
+
+      [role="tab"] button {
+        padding-inline: var(--spacing-s);
+      }
     }
 
-    .tab-list.pill .tab button {
-      padding-inline: var(--spacing-s);
-    }
-
-    .tab-list.underline {
+    [role="tablist"].underline {
       gap: var(--spacing-xl);
     }
 
-    .tab button {
+    [role="tab"] button {
       height: 50px;
     }
   }
