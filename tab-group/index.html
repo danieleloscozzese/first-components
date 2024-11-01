@@ -22,7 +22,7 @@
 
     <header><h1>Testing a custom component</h1></header>
     <main>
-      <dag-tab-group>
+      <dag-tab-group variant="underline" title="Example tabs">
         <details>
           <summary>First</summary>
           The first content
@@ -64,9 +64,7 @@
       </li> -->
 
     <!-- <section
-        key={titles[index].label}
         role="tabpanel"
-        className={ownClasses.panel}
         hidden={!isSelected}
         tabIndex={isSelected ? 0 : undefined}
         aria-labelledby={`tab-${index}`}

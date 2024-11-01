@@ -1,10 +1,21 @@
 class TabGroup extends HTMLElement {
   static get observedAttributes() {
-    return ["variant"];
+    return ["title", "variant"];
   }
 
   static get #template() {
     return document.getElementById("tab-group-template").cloneNode(true);
+  }
+
+  static #idGenerator = (function* () {
+    let id = 1;
+    while (true) {
+      yield id++;
+    }
+  })();
+
+  static get #nextId() {
+    return TabGroup.#idGenerator.next().value;
   }
 
   connectedCallback() {
@@ -22,21 +33,28 @@ class TabGroup extends HTMLElement {
 
       detailsClone.removeChild(summary);
 
-      console.group(`Tab ${index + 1}`);
-      console.log("The title is", title);
-      console.log("The content is", detailsClone.innerHTML);
-      console.groupEnd();
+      const pairId = TabGroup.#nextId;
 
       const tab = document.createElement("li");
       tab.role = "tab";
+      tab.id = `tab-${pairId}`;
+      tab.ariaSelected = index === 0;
+      // Non-reflected attribute
+      tab.setAttribute("aria-controls", `panel-${pairId}`);
+
       const tabButton = document.createElement("button");
       tabButton.type = "button";
       tabButton.textContent = title;
+      tabButton.tabIndex = index === 0 ? 0 : -1;
       tab.appendChild(tabButton);
       tabList.appendChild(tab);
 
       const panel = document.createElement("section");
       panel.role = "tabpanel";
+      panel.id = `panel-${pairId}`;
+      panel.hidden = index !== 0;
+      // Non-reflected attribute
+      panel.setAttribute("aria-labelledby", `tab-${pairId}`);
       panel.innerHTML = detailsClone.innerHTML;
       fragment.appendChild(panel);
     });
@@ -57,6 +75,8 @@ class TabGroup extends HTMLElement {
 
     tabList.classList.remove("pill", "underline");
     tabList.classList.add(this.variant);
+
+    tabList.ariaLabel = this.title;
   }
 
   get variant() {
@@ -67,6 +87,10 @@ class TabGroup extends HTMLElement {
     } else {
       return "pill";
     }
+  }
+
+  get title() {
+    return this.getAttribute("title");
   }
 }
 
