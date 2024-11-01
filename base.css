@@ -32,37 +32,7 @@
 }
 
 @layer typography {
-  @font-face {
-    font-family: "Inter";
-    src: url("/fonts/Inter-VariableFont_opsz\,wght.ttf") format("truetype");
-    font-display: swap;
-    font-style: normal;
-    font-weight: 100 900;
-  }
-
-  @font-face {
-    font-family: "Inter";
-    src: url("/fonts/Inter-Italic-VariableFont_opsz\,wght.ttf")
-      format("truetype");
-    font-display: swap;
-    font-style: italic;
-    font-weight: 100 900;
-  }
-
   :root {
-    --font: "Inter", sans-serif;
-  }
-
-  .body {
-    font-family: var(--font);
-    line-height: 150%;
-  }
-
-  .body.m {
-    font-size: 14px;
-  }
-
-  .body.s {
-    font-size: 12px;
+    font-family: sans-serif;
   }
 }
