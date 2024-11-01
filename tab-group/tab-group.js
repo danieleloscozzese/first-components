@@ -1,6 +1,6 @@
 class TabGroup extends HTMLElement {
   static get observedAttributes() {
-    return ["aria-label", "variant"];
+    return ["variant"];
   }
 
   static get #template() {
@@ -30,6 +30,7 @@ class TabGroup extends HTMLElement {
       const tab = document.createElement("li");
       tab.role = "tab";
       tab.textContent = title;
+      tab.classList.add("tab");
       tabList.appendChild(tab);
 
       const panel = document.createElement("section");
@@ -41,6 +42,29 @@ class TabGroup extends HTMLElement {
     console.log(fragment);
 
     this.replaceChildren(fragment);
+
+    this.#update();
+  }
+
+  attributeChangedCallback() {
+    this.#update();
+  }
+
+  #update() {
+    const tabList = this.querySelector('[role="tablist"]');
+
+    tabList.classList.remove("pill", "underline");
+    tabList.classList.add(this.variant);
+  }
+
+  get variant() {
+    const v = this.getAttribute("variant");
+
+    if (v === "underline") {
+      return "underline";
+    } else {
+      return "pill";
+    }
   }
 }
 
