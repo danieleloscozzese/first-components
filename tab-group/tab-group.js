@@ -91,10 +91,6 @@ class TabGroup extends HTMLElement {
     return ["title", "variant"];
   }
 
-  static get #template() {
-    return document.getElementById("tab-group-template").cloneNode(true);
-  }
-
   static #idGenerator = (function* () {
     let id = 1;
     while (true) {

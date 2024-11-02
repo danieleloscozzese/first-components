@@ -15,8 +15,11 @@
   <body>
     <template id="tab-group-structure">
       <div>
-        <!-- This needs an aria-label -->
-        <ol role="tablist"></ol>
+        <ol role="tablist">
+          <slot name="tabs"></slot>
+        </ol>
+
+        <slot name="panels"></slot>
       </div>
     </template>
 
