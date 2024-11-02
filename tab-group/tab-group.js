@@ -105,10 +105,10 @@ class TabGroup extends HTMLElement {
   #selectedTabIndex = 0;
 
   connectedCallback() {
-    const fragment = document.createDocumentFragment();
-    const tabList = document.createElement("ol");
-    tabList.role = "tablist";
-    fragment.appendChild(tabList);
+    const base = document
+      .getElementById("tab-group-structure")
+      .content.cloneNode(true);
+    const tabList = base.querySelector('[role="tablist"]');
 
     this.querySelectorAll("details").forEach((details, index) => {
       const detailsClone = details.cloneNode(true);
@@ -150,10 +150,10 @@ class TabGroup extends HTMLElement {
       // Non-reflected attribute
       panel.setAttribute("aria-labelledby", `tab-${pairId}`);
       panel.innerHTML = detailsClone.innerHTML;
-      fragment.appendChild(panel);
+      base.appendChild(panel);
     });
 
-    this.replaceChildren(fragment);
+    this.replaceChildren(base);
 
     this.#update();
   }
@@ -188,6 +188,7 @@ class TabGroup extends HTMLElement {
     });
   }
 
+  // Getters for the attributes: the attribute defines the value
   get variant() {
     const v = this.getAttribute("variant");
 
