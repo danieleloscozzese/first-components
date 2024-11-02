@@ -73,6 +73,10 @@ class TabGroup extends HTMLElement {
   #update() {
     const tabList = this.querySelector('[role="tablist"]');
 
+    if (tabList === null) {
+      return;
+    }
+
     tabList.classList.remove("pill", "underline");
     tabList.classList.add(this.variant);
 
