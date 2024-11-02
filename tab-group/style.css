@@ -1,5 +1,5 @@
 @layer components {
-  dag-tab-group {
+  dagher-tab-group {
     [role="tablist"] {
       display: flex;
       flex-flow: row nowrap;
