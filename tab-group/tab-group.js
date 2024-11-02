@@ -18,6 +18,8 @@ class TabGroup extends HTMLElement {
     return TabGroup.#idGenerator.next().value;
   }
 
+  #selectedTabIndex = 0;
+
   connectedCallback() {
     const fragment = document.createDocumentFragment();
     const tabList = document.createElement("ol");
@@ -38,14 +40,14 @@ class TabGroup extends HTMLElement {
       const tab = document.createElement("li");
       tab.role = "tab";
       tab.id = `tab-${pairId}`;
-      tab.ariaSelected = index === 0;
+      tab.ariaSelected = index === this.#selectedTabIndex;
       // Non-reflected attribute
       tab.setAttribute("aria-controls", `panel-${pairId}`);
 
       const tabButton = document.createElement("button");
       tabButton.type = "button";
       tabButton.textContent = title;
-      tabButton.tabIndex = index === 0 ? 0 : -1;
+      tabButton.tabIndex = index === this.#selectedTabIndex ? 0 : -1;
       tab.appendChild(tabButton);
       tabList.appendChild(tab);
 
