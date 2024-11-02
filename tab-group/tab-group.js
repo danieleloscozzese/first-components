@@ -203,4 +203,4 @@ class TabGroup extends HTMLElement {
   }
 }
 
-customElements.define("dag-tab-group", TabGroup);
+customElements.define("dagher-tab-group", TabGroup);
