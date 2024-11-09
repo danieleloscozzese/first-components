@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>The holder for the components</title>
+    <base href="./" />
+
+    <script type="module" src="holder.js"></script>
+  </head>
+  <body>
+    <main>
+      <dag-holder>
+        <h1>First section</h1>
+
+        <p>
+          Because there is a <code>&lt;slot&gt;</code> in the Shadow DOM, all of
+          the content inside the holder will be placed inside the first section.
+        </p>
+
+        <p>
+          When the button is clicked, it's all moved over to the other section;
+          allowing testing of the insertion and the connected callback.
+        </p>
+      </dag-holder>
+    </main>
+  </body>
+</html>

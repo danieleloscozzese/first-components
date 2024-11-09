@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.button-holder button {
+  display: block;
+  margin-inline: auto;
+}
+
+.content {
+  display: flex;
+  gap: 8px;
+  padding-inline: 8px;
+}
+
+section {
+  border: 2px solid black;
+  padding: 4px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+
+  section {
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 50%;
+  }
+}

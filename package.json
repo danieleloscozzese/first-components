@@ -13,6 +13,7 @@
   "author": "Daniel Arthur Gallagher [https://danielarthurgallagher.dev]",
   "license": "EUPL-1.2",
   "devDependencies": {
-    "prettier": "3.3.3"
+    "prettier": "3.3.3",
+    "serve": "^14.2.4"
   }
 }
