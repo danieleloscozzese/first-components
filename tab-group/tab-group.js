@@ -1,4 +1,4 @@
-import { focusAndScroll, navigateTabs } from "./tab-behaviors";
+import { navigateTabs } from "./tab-behaviors.js";
 
 class TabGroup extends HTMLElement {
   static get observedAttributes() {

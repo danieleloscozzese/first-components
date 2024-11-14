@@ -86,4 +86,4 @@ const navigateTabs = (evt, index) => {
   }
 };
 
-export { navigateTabs, focusAndScroll };
+export { navigateTabs };
