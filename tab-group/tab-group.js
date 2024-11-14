@@ -55,6 +55,13 @@ class TabGroup extends HTMLElement {
             passive: false,
           }
         );
+
+        // if (!this.withManualSwitching) {
+        //   tabButton.addEventListener("focusin", (e) => {
+        //     e.target.click();
+        //   });
+        // }
+
         tabButton.addEventListener("click", () => {
           // Private setter?
           this.#selectedTabIndex = index;
@@ -123,6 +130,12 @@ class TabGroup extends HTMLElement {
     }
   }
 
+  get withManualSwitching() {
+    const ms = this.getAttribute("with-manual-switching");
+
+    return Boolean(ms);
+  }
+
   get title() {
     return this.getAttribute("title");
   }
@@ -132,6 +145,14 @@ class TabGroup extends HTMLElement {
    */
   set variant(v) {
     this.setAttribute("variant", v);
+  }
+
+  set withManualSwitching(ms) {
+    if (ms) {
+      this.setAttribute("with-manual-switching", "true");
+    } else {
+      this.removeAttribute("with-manual-switching");
+    }
   }
 
   set title(t) {
