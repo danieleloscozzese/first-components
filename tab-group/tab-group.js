@@ -55,6 +55,17 @@ class TabGroup extends HTMLElement {
             passive: false,
           }
         );
+        // Set up the listeners once and call the click conditionally based on
+        // the state of the component.
+        tabButton.addEventListener(
+          "focus",
+          (event) => {
+            if (!this.withManualSwitching) {
+              clickTab(event);
+            }
+          },
+          { passive: true }
+        );
 
         tabButton.addEventListener("click", () => {
           // Private setter?
@@ -106,12 +117,6 @@ class TabGroup extends HTMLElement {
 
       const tabButton = tab.querySelector("button");
       tabButton.tabIndex = index === this.#selectedTabIndex ? 0 : -1;
-
-      tabButton.removeEventListener("focusin", clickTab);
-
-      if (!this.withManualSwitching) {
-        tabButton.addEventListener("focusin", clickTab, { passive: true });
-      }
     });
 
     this.querySelectorAll('[role="tabpanel"]').forEach((panel, index) => {
