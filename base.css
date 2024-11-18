@@ -1,0 +1,38 @@
+@layer base {
+  :root {
+    --spacing-4xs: 2px;
+    --spacing-3xs: 4px;
+    --spacing-2xs: 8px;
+    --spacing-xs: 12px;
+    --spacing-s: 16px;
+    --spacing-m: 20px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+
+    --color-positive: #b1ffc7;
+    --color-negative: #ffbfb1;
+
+    --text-color: #1b2134;
+    --background-color: white;
+    --border-color: #d3d3dc;
+    --hover-background-color: #f6f6fa;
+    --hover-border-color: #c4c5cf;
+    --active-background-color: #f1f1f7;
+    --active-border-color: #f1f1f7;
+
+    --inverted-text-color: white;
+    --inverted-background-color: #1b2134;
+    --inverted-border-color: #1b2134;
+    --inverted-hover-background-color: #343a4e;
+    --inverted-hover-border-color: #343a4e;
+    --inverted-active-background-color: #585d71;
+    --inverted-active-border-color: #585d71;
+  }
+}
+
+@layer typography {
+  :root {
+    font-family: sans-serif;
+  }
+}

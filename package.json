@@ -10,6 +10,9 @@
   "keywords": [
     "web components"
   ],
+  "scripts": {
+    "start": "serve ."
+  },
   "author": "Daniel Arthur Gallagher [https://danielarthurgallagher.dev]",
   "license": "EUPL-1.2",
   "devDependencies": {

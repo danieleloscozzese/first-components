@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tab Group Example</title>
+    <meta name="description" content="A demo implementation of a Tab Group" />
+    <meta name="color-scheme" content="light dark" />
+
+    <base href="/tab-group/" />
+
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script type="module" src="./tab-group.js" async></script>
+  </head>
+  <body>
+    <template id="tab-group-structure">
+      <ol role="tablist"></ol>
+    </template>
+
+    <header><h1>Tab Group</h1></header>
+    <main>
+      <dagher-tab-group variant="underline" title="Example tabs">
+        <details>
+          <summary>First</summary>
+          The first content
+        </details>
+        <details>
+          <summary>Second</summary>
+          <p>The <em>second</em> content</p>
+        </details>
+        <details>
+          <summary>Third</summary>
+          <p>The third section of content</p>
+        </details>
+      </dagher-tab-group>
+    </main>
+  </body>
+</html>

@@ -57,4 +57,4 @@ class Holder extends HTMLElement {
   }
 }
 
-customElements.define("dag-holder", Holder);
+customElements.define("dagher-holder", Holder);
