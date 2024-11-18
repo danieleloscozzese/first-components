@@ -1,8 +1,8 @@
-import { navigateTabs } from "./tab-behaviors.js";
+import { clickTab, navigateTabs } from "./tab-behaviors.js";
 
 class TabGroup extends HTMLElement {
   static get observedAttributes() {
-    return ["title", "variant"];
+    return ["title", "variant", "with-manual-switching"];
   }
 
   static #idGenerator = (function* () {
@@ -56,12 +56,6 @@ class TabGroup extends HTMLElement {
           }
         );
 
-        // if (!this.withManualSwitching) {
-        //   tabButton.addEventListener("focusin", (e) => {
-        //     e.target.click();
-        //   });
-        // }
-
         tabButton.addEventListener("click", () => {
           // Private setter?
           this.#selectedTabIndex = index;
@@ -109,8 +103,15 @@ class TabGroup extends HTMLElement {
 
     tabList.querySelectorAll('[role="tab"]').forEach((tab, index) => {
       tab.ariaSelected = index === this.#selectedTabIndex;
-      tab.querySelector("button").tabIndex =
-        index === this.#selectedTabIndex ? 0 : -1;
+
+      const tabButton = tab.querySelector("button");
+      tabButton.tabIndex = index === this.#selectedTabIndex ? 0 : -1;
+
+      tabButton.removeEventListener("focusin", clickTab);
+
+      if (!this.withManualSwitching) {
+        tabButton.addEventListener("focusin", clickTab, { passive: true });
+      }
     });
 
     this.querySelectorAll('[role="tabpanel"]').forEach((panel, index) => {

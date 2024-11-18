@@ -86,4 +86,12 @@ const navigateTabs = (evt, index) => {
   }
 };
 
-export { navigateTabs };
+/**
+ * Clicks the tab programmatically.
+ * @param {Event} event
+ */
+const clickTab = (event) => {
+  event.currentTarget.click();
+};
+
+export { navigateTabs, clickTab };
