@@ -28,46 +28,11 @@
           <summary>Second</summary>
           <p>The <em>second</em> content</p>
         </details>
+        <details>
+          <summary>Third</summary>
+          <p>The third section of content</p>
+        </details>
       </dagher-tab-group>
     </main>
-
-    <!-- <li
-        key={title.label}
-        role="tab"
-        className={classNames(ownClasses.tab, "body m")}
-        id={`tab-${index}`}
-        aria-controls={`panel-${index}`}
-        aria-selected={isSelected}
-      >
-        <button
-          type="button"
-          onClick={(evt) => {
-            // Focus the clicked tab and scroll to it, to align with the
-            // keyboard navigation and prevent cutting off the newly-selected
-            // tab.
-            focusAndScroll(evt.currentTarget);
-            setActiveTabIndex(index);
-          }}
-          onKeyDown={(evt) => navigateTabs(evt, index)}
-          onFocus={
-            withManualSwitching ? undefined : (evt) => evt.currentTarget.click()
-          }
-          tabIndex={isSelected ? 0 : -1}
-        >
-          {title.label}
-
-          {title.badge}
-        </button>
-      </li> -->
-
-    <!-- <section
-        role="tabpanel"
-        hidden={!isSelected}
-        tabIndex={isSelected ? 0 : undefined}
-        aria-labelledby={`tab-${index}`}
-        id={`panel-${index}`}
-      >
-        {panel}
-      </section> -->
   </body>
 </html>
