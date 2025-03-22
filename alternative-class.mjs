@@ -4,15 +4,16 @@ class BritishPerson {
   #middleName;
   #lastName;
 
-  /** @type {boolean | undefined} */
-  hasPassport;
-
   constructor(firstName, middleName = null, lastName, age, hasPassport) {
     this.#firstName = firstName;
     this.#middleName = middleName;
     this.#lastName = lastName;
     this.#age = age;
     this.hasPassport = hasPassport;
+  }
+
+  get [Symbol.toStringTag]() {
+    return "BritishPerson";
   }
 
   get name() {
@@ -34,9 +35,21 @@ class BritishPerson {
   get canBuyBeerTickets() {
     return this.#age >= 18;
   }
+
+  toString() {
+    return `${this.name}, aged ${this.age}`;
+  }
+
+  toJSON() {
+    return {
+      name: this.name,
+      age: this.age,
+      hasPassport: this.hasPassport,
+    };
+  }
 }
 
 const me = new BritishPerson("Daniel", "Arthur", "Gallagher", 30, true);
-setTimeout(() => {
-  me.hasPassport = false;
-}, 1_814_400_000);
+console.log(me);
+console.log(me.toString());
+console.log(JSON.stringify(me));
